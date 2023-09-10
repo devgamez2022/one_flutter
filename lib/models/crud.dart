@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 FirebaseFirestore db = FirebaseFirestore.instance;
 
+/**Metodo para consultar toda la informacion de la coleccion tb_students */
+
 Future<List> getStudiantes() async {
   List students = [];
   CollectionReference collectionReference = db.collection('tb_students');
@@ -14,8 +16,7 @@ Future<List> getStudiantes() async {
   querySnapshot.docs.forEach((documento) {
     students.add(documento.data());
   });
-
-  print('$students');
-
+  //print('$students');
+  await Future.delayed(const Duration(seconds: 5));
   return students;
 }

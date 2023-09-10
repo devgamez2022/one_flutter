@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: Home(),
@@ -37,10 +37,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Null datos;
-  dynamic datass;
-
-  var _primerNombre="";
-  final _segundoNombre="";
 
   void _dataFireBase(){
         // Create a reference to the cities collection
@@ -82,30 +78,54 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Material App Bar'),
+        title: const Text('Consulta Cloud Firestore'),
       ),
       body: FutureBuilder(
         future: getStudiantes(), 
         builder: ((context, snapshot) {
+          if(snapshot.hasData){
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: ((context, index) {
-                //datos = snapshot.data?[index]['first_name'];
                 return Card(
-                  elevation: 10,
-                  color: Colors.grey,
-                  child: Text(
-                    snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name'],
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
+                      elevation: 10,
+                      clipBehavior: Clip.hardEdge,
+                      shape: const RoundedRectangleBorder(
+                        side: BorderSide(
+                          //color: Theme.of(context).colorScheme.outline,
+                           color: Colors.black,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
-                      
-                  ),
-                );
+                      child: InkWell(
+                        //splashColor: Colors.blue.withAlpha(30),
+                        splashColor: Colors.grey,
+                        onTap: () {
+                          debugPrint(snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name']);
+                        },
+                        child: SizedBox(
+                          width: 300,
+                          height: 100,
+                          child: Center(
+                            child: Text(
+                              snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name'],
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
               }),
+            );
+          }else{
+            return const Center(
+              child: CircularProgressIndicator(),
               );
+          } 
         })
       ),
     );
@@ -140,4 +160,28 @@ Column(
             child: Text('Mostrar dato'))
         ],
       )
+*/
+
+/*
+Card(
+                  elevation: 10,
+                  color: Colors.grey,
+                  child: Text(
+                    snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name'],
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                      ),
+                  ),
+                );
+*/
+
+/*
+SizedBox(
+                        width: 300,
+                        height: 100,
+                        child: Center(child: Text(
+                          snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name'],
+                        ))),
 */
