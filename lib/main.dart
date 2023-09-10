@@ -91,14 +91,18 @@ class _HomeState extends State<Home> {
               itemCount: snapshot.data?.length,
               itemBuilder: ((context, index) {
                 //datos = snapshot.data?[index]['first_name'];
-                return Text(
-                  snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name'],
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black
-                    ),
-                    
+                return Card(
+                  elevation: 10,
+                  color: Colors.grey,
+                  child: Text(
+                    snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name'],
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                      ),
+                      
+                  ),
                 );
               }),
               );
