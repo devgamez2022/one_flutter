@@ -44,38 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCKh1QaPF3m5pn51VOM9s1ufx0bGyQSm_M',
-    appId: '1:352458789279:web:026f0ebbf7ef0037e8adaa',
-    messagingSenderId: '352458789279',
-    projectId: 'db-test-sis21',
-    authDomain: 'db-test-sis21.firebaseapp.com',
-    storageBucket: 'db-test-sis21.appspot.com',
-    measurementId: 'G-4LY8WFGGFR',
+    apiKey: 'AIzaSyDH_UKHOFuHjn2I3ENHGRdsoGlTdZ5FOp4',
+    appId: '1:763847961456:web:56fb9f6ffc0336efe83db5',
+    messagingSenderId: '763847961456',
+    projectId: 'db-firebase-a2c97',
+    authDomain: 'db-firebase-a2c97.firebaseapp.com',
+    storageBucket: 'db-firebase-a2c97.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD4_GWFBsK8wqHvPeU2NvTMf8cXPusLPN4',
-    appId: '1:352458789279:android:6c10848c882ac19be8adaa',
-    messagingSenderId: '352458789279',
-    projectId: 'db-test-sis21',
-    storageBucket: 'db-test-sis21.appspot.com',
+    apiKey: 'AIzaSyBFbs1jdbNM1bCdNpd7lpxxDGctGzEsBNQ',
+    appId: '1:763847961456:android:4b14de28173062d7e83db5',
+    messagingSenderId: '763847961456',
+    projectId: 'db-firebase-a2c97',
+    storageBucket: 'db-firebase-a2c97.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDZZ5XemxLa_AwZN4lpkl8y8wDzX7tbE3M',
-    appId: '1:352458789279:ios:c071db77e7672ad9e8adaa',
-    messagingSenderId: '352458789279',
-    projectId: 'db-test-sis21',
-    storageBucket: 'db-test-sis21.appspot.com',
+    apiKey: 'AIzaSyAjUOkb7oWQ_jexOkFshX9oLEJDPhBx7vQ',
+    appId: '1:763847961456:ios:a0fd507c8ee283dde83db5',
+    messagingSenderId: '763847961456',
+    projectId: 'db-firebase-a2c97',
+    storageBucket: 'db-firebase-a2c97.appspot.com',
     iosBundleId: 'com.stginnovacion.oneFlutter',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDZZ5XemxLa_AwZN4lpkl8y8wDzX7tbE3M',
-    appId: '1:352458789279:ios:4857ebb623fff872e8adaa',
-    messagingSenderId: '352458789279',
-    projectId: 'db-test-sis21',
-    storageBucket: 'db-test-sis21.appspot.com',
+    apiKey: 'AIzaSyAjUOkb7oWQ_jexOkFshX9oLEJDPhBx7vQ',
+    appId: '1:763847961456:ios:344387ea37b67b7fe83db5',
+    messagingSenderId: '763847961456',
+    projectId: 'db-firebase-a2c97',
+    storageBucket: 'db-firebase-a2c97.appspot.com',
     iosBundleId: 'com.stginnovacion.oneFlutter.RunnerTests',
   );
 }

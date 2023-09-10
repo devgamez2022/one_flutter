@@ -14,5 +14,8 @@ Future<List> getStudiantes() async {
   querySnapshot.docs.forEach((documento) {
     students.add(documento.data());
   });
+
+  print('$students');
+
   return students;
 }
