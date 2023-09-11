@@ -17,6 +17,10 @@ Future<List> getStudiantes() async {
     students.add(documento.data());
   });
   //print('$students');
-  await Future.delayed(const Duration(seconds: 5));
+  await Future.delayed(const Duration(seconds: 2));
   return students;
+}
+
+Future<void> addAlumno(String nombres, String apellidos) async {
+  await db.collection('tb_students').add({"first_name" : nombres, "seconds_name" : apellidos});
 }
