@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
         title: const Text('Consulta Cloud Firestore'),
       ),
       body: FutureBuilder(
-        future: getStudiantes(), 
+        future: getAlumno(), 
         builder: ((context, snapshot) {
           if(snapshot.hasData){
             return ListView.builder(
@@ -69,8 +69,16 @@ class _HomeState extends State<Home> {
                       child: InkWell(
                         //splashColor: Colors.blue.withAlpha(30),
                         splashColor: Colors.grey,
-                        onTap: () {
-                          debugPrint(snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name']);
+                        onTap: () async{
+                          //debugPrint(snapshot.data?[index]['first_name'] + " " + snapshot.data?[index]['seconds_name']);
+                          await Navigator.pushNamed(context, "/edit", arguments: {
+                            'uid' : snapshot.data?[index]['uid'],
+                            'nombres' : snapshot.data?[index]['first_name'],
+                            'apellidos' : snapshot.data?[index]['seconds_name']
+                          });
+                          setState(() {
+                            
+                          });
                         },
                         child: SizedBox(
                           width: 300,

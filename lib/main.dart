@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:one_flutter/views/add_students.dart';
+import 'package:one_flutter/views/edit_students.dart';
 import 'package:one_flutter/views/home_page.dart';
 import 'firebase_options.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const Home(),
         "/add":(context) => const AddStudents(),
+        "/edit":(context) => const EditStudents(),
       },
     );
   }
