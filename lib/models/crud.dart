@@ -61,3 +61,6 @@ Future<void> editAlumno(String uid, String nombres, String apellidos) async {
 
 
 //Método para eliminar documentos de estudiantes.
+Future<void> deleteAlumno(String uid) async{
+await db.collection('tb_students').doc(uid).delete();
+}
