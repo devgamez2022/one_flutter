@@ -46,6 +46,19 @@ Future<List> getStudiantes1() async {
 }
 
 
+void getDataStudents() async {
+    CollectionReference collectionReference =
+    FirebaseFirestore.instance.collection("tb_students");
+    QuerySnapshot mensajes = await collectionReference.get();
+    if(mensajes.docs.length != 0){
+    for (var doc in mensajes.docs){
+    print(doc.data());
+    //chatsx.add(doc.data());
+    }
+    }
+}
+
+
 
 //Método para agregar documentos de alumnos.
 Future<void> addAlumno(String nombres, String apellidos) async {
@@ -60,7 +73,7 @@ Future<void> editAlumno(String uid, String nombres, String apellidos) async {
 }
 
 
-//Método para eliminar documentos de estudiantes.
-Future<void> deleteAlumno(String uid) async{
-await db.collection('tb_students').doc(uid).delete();
-}
+  //Método para eliminar documentos de estudiantes.
+  Future<void> deleteAlumno(String uid) async{
+  await db.collection('tb_students').doc(uid).delete();
+  }

@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:one_flutter/views/add_students.dart';
 import 'package:one_flutter/views/edit_students.dart';
 import 'package:one_flutter/views/home_page.dart';
+import 'package:one_flutter/views/login_page.dart';
+import 'package:one_flutter/views/sign_up_auth.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -23,11 +25,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      initialRoute: "/",
+      initialRoute: "/login",
       routes: {
         "/": (context) => const Home(),
         "/add":(context) => const AddStudents(),
         "/edit":(context) => const EditStudents(),
+        "/login":(context) => const LoginPage(),
+        "/signup":(context) => const SignUpPage(),
       },
     );
   }

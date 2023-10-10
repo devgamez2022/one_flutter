@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:one_flutter/models/crud.dart';
 
@@ -42,12 +44,62 @@ class _HomeState extends State<Home> {
 
   }
 
+  
+  /*appBar: AppBar(
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () => print('Icono Uno'),
+              );
+            },
+          ), 
+          title: const Text('CRUD'),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.edit),
+              onPressed: () => print('Edit'),
+            ),
+            IconButton(
+              icon: const Icon(Icons.save),
+              onPressed: () => print('Save'),
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () => print('Delete'),
+            ),
+            IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: () => print('Close'),
+            ),
+          ],
+        )
+  */
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Consulta Cloud Firestore'),
+          //leading: const Icon(Icons.close),
+        leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () => print('Has presionado el icono menu'),
+                );
+              },
+            ),
+        actions: [
+          IconButton(
+            //onPressed: () => print('Has presionado cerrar sesion'), 
+            onPressed: (){
+              FirebaseAuth.instance.signOut();
+              Navigator.pushNamed(context, "/login");
+            },
+            icon: const Icon(Icons.close)
+            )
+        ],
       ),
       body: FutureBuilder(
         future: getAlumno(), 
@@ -165,4 +217,11 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    getDataStudents();
+  }
+
 }
