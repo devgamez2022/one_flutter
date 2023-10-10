@@ -20,7 +20,8 @@ class InputWidget extends StatefulWidget {
   final String? hintText;
   final String? labelText;
   final TextInputType? inputType;
-  final Icon? icon;
+  final IconData? icon;
+  //final Icon? icon;
 
   @override
   State<InputWidget> createState() => _InputWidgetState();
@@ -64,4 +65,11 @@ class _InputWidgetState extends State<InputWidget> {
         ),
     );
   }
+
+  /*
+    child: widget.isPasswordField==true? Icon(
+                  _obscureText ? Icons.visibility_off : Icons.visibility,
+                  color: _obscureText == false ? Colors.blue : Colors.grey,
+                  ): const Text(""),
+  */
 }

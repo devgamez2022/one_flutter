@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:one_flutter/user_auth/firebase_auth_services.dart';
 import 'package:one_flutter/views/sign_up_auth.dart';
 import 'package:one_flutter/widget/form_container_widget.dart';
+import 'package:one_flutter/widget/input_password.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -49,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 );
               },
             ),
+            
       ),
       body: Center(
         child: Padding(
@@ -64,7 +66,17 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 30,
               ),
-              FormContainerWidget(
+              _InputCustomized(_emailController,false,'Correo electronico', 'E-mail', TextInputType.emailAddress, Icons.email),
+              const SizedBox(
+                height: 30,
+              ),
+              InputWidget(
+                controller: _passwordController,
+                hintText: 'Contrasena',
+                isPasswordField: true,
+                //inputType: TextInputType.visiblePassword ,
+              ),
+              /* FormContainerWidget(
                 controller: _emailController,
                 hintText: "Email",
                 isPasswordField: false,
@@ -74,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: _passwordController,
                 hintText: "Password",
                 isPasswordField: true,
-              ),
+              ) */
               const SizedBox(height: 30,),
               GestureDetector(
                 onTap: _signIn,
@@ -146,6 +158,37 @@ class _LoginPageState extends State<LoginPage> {
         mensaje = "No se encontro el usuario especificado";
       });
     }
+  }
+
+
+  //Creando widget con paso de parametros para personalizar
+  Widget _InputCustomized(TextEditingController? controller, bool? isPassword, String? hintText, String? labelText, TextInputType? inputType, IconData? icon)
+  {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(.35),
+        borderRadius: BorderRadius.circular(10),
+        ),
+        child: TextFormField(
+          style: const TextStyle(color: Colors.black),
+          controller: controller,
+          keyboardType: inputType,
+          obscureText: isPassword == true? true : false,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            filled: true,
+            hintText: hintText,
+            hintStyle: const TextStyle(
+              color: Colors.black45
+              ),
+              suffixIcon: Icon(
+                icon,
+                color: Colors.red,
+              )
+            )
+        ),
+    );
   }
 
 
