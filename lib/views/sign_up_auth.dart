@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:one_flutter/user_auth/firebase_auth_services.dart';
 import 'package:one_flutter/views/login_page.dart';
-import 'package:one_flutter/widget/form_container_widget.dart';
+import 'package:one_flutter/widget/input_widget.dart';
 
 
 class SignUpPage extends StatefulWidget {
@@ -49,25 +49,25 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                FormContainerWidget(
+                InputWidget(
                   controller: _usernameController,
-                  hintText: "Username",
+                  hintText: "Nombre de Usuario",
                   isPasswordField: false,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                FormContainerWidget(
+                InputWidget(
                   controller: _emailController,
-                  hintText: "Email",
+                  hintText: "Dirección de correo",
                   isPasswordField: false,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                FormContainerWidget(
+                InputWidget(
                   controller: _passwordController,
-                  hintText: "Password",
+                  hintText: "Contrasena",
                   isPasswordField: true,
                 ),
                 const SizedBox(

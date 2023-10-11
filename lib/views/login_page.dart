@@ -1,10 +1,9 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:one_flutter/user_auth/firebase_auth_services.dart';
 import 'package:one_flutter/views/sign_up_auth.dart';
-import 'package:one_flutter/widget/form_container_widget.dart';
-import 'package:one_flutter/widget/input_password.dart';
+//import 'package:one_flutter/widget/form_container_widget.dart';
+import 'package:one_flutter/widget/input_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -66,7 +65,8 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 30,
               ),
-              _InputCustomized(_emailController,false,'Correo electronico', 'E-mail', TextInputType.emailAddress, Icons.email),
+              _InputCustomized(_emailController,false,'Correo electronico', 'E-mail', 
+              TextInputType.emailAddress, Icons.email),
               const SizedBox(
                 height: 30,
               ),
@@ -97,7 +97,8 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Center(child:Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+                  child: const Center(child:Text("Login",style: 
+                  TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
                 ),
               ),
               const SizedBox(height: 20,),
@@ -107,9 +108,12 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(width: 5,),
                   GestureDetector(
                       onTap: (){
-                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SignUpPage()), (route) => false);
+                        Navigator.pushAndRemoveUntil(context, 
+                        MaterialPageRoute(builder: (context) => const SignUpPage()), 
+                        (route) => false);
                       },
-                      child: const Text("Registrarme",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),)),
+                      child: const Text("Registrarme",style: 
+                      TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),)),
                       
                 ],
               ),
