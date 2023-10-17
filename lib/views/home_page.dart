@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:one_flutter/models/crud.dart';
+import 'package:quickalert/quickalert.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -14,6 +15,38 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Null datos;
+
+  void _alertClose(){
+    QuickAlert.show(
+    context: context,
+    type: QuickAlertType.confirm,
+    text: 'Do you want to logout',
+    confirmBtnText: 'Aceptar',
+    cancelBtnText: 'Cancelar',
+    barrierDismissible: false,
+    cancelBtnTextStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+    confirmBtnColor: Colors.blue,
+    onConfirmBtnTap: () {
+      FirebaseAuth.instance.signOut();
+      Navigator.pushNamed(context, "/login");
+    },
+    onCancelBtnTap: () {
+      Navigator.of(context).pop();
+    },
+    );
+  }
+
+  void _alertSuccess(){
+      QuickAlert.show(
+      context: context,
+      text: '¿Realmente desea cerrar su sesión?',
+      type: QuickAlertType.confirm,
+      onConfirmBtnTap: (){
+        FirebaseAuth.instance.signOut();
+        Navigator.pushNamed(context, "/login");
+      }
+    ); // That's it to display an alert, use other properties to customize.
+  }
 
   void _dataFireBase(){
         db.collection("tb_students").where("first_name", isEqualTo: "Ana").get().then(
@@ -86,7 +119,10 @@ class _HomeState extends State<Home> {
               builder: (BuildContext context) {
                 return IconButton(
                   icon: const Icon(Icons.menu),
-                  onPressed: () => print('Has presionado el icono menu'),
+                  onPressed: () {
+                    //Has presionado...
+                    print('Has presionado icono menu');
+                  },
                 );
               },
             ),
@@ -94,8 +130,9 @@ class _HomeState extends State<Home> {
           IconButton(
             //onPressed: () => print('Has presionado cerrar sesion'), 
             onPressed: (){
-              FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, "/login");
+              /* FirebaseAuth.instance.signOut();
+              Navigator.pushNamed(context, "/login"); */
+              _alertClose();
             },
             icon: const Icon(Icons.close)
             )
@@ -223,5 +260,6 @@ class _HomeState extends State<Home> {
     super.initState();
     getDataStudents();
   }
+
 
 }

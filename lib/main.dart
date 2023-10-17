@@ -3,8 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:one_flutter/views/add_students.dart';
 import 'package:one_flutter/views/edit_students.dart';
 import 'package:one_flutter/views/home_page.dart';
+import 'package:one_flutter/views/login.dart';
 import 'package:one_flutter/views/login_page.dart';
 import 'package:one_flutter/views/sign_up_auth.dart';
+import 'package:one_flutter/views/signup.dart';
 import 'firebase_options.dart';
 
 void main() async {
